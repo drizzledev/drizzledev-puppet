@@ -56,4 +56,25 @@ class jenkins_slave {
        ],
     }
 
+    file { '/etc/locale.gen':
+      owner => 'root',
+      group => 'root',
+      mode => 644,
+      ensure => 'present',
+      source => [
+         "puppet:///modules/jenkins_slave/locale.gen",
+       ],
+    }
+
+    exec { "Regenerate locales":
+      path        => "/usr/sbin:/usr/bin:/sbin:/bin",
+      environment => "HOME=/root",
+      command     => "/usr/sbin/locale-gen",
+      user        => "root",
+      group       => "root",
+      logoutput   => on_failure,
+      subscribe   => File['/etc/locale.gen'],
+      require     => File['/etc/locale.gen'],
+    }
+
 }

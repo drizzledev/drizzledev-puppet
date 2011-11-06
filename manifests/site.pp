@@ -17,6 +17,10 @@ class drizzle_base {
     ensure => installed
     }
 
+  group { 'puppet':
+    ensure => 'present'
+  }
+
   service { 'ntpd':
     name       => 'ntp',
     ensure     => running,

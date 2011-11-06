@@ -61,20 +61,17 @@ class jenkins_slave {
       group => 'root',
       mode => 644,
       ensure => 'present',
+      notify => Exec["locale-gen"],
+      checksum => 'md5',
       source => [
          "puppet:///modules/jenkins_slave/locale.gen",
        ],
     }
 
-    exec { "Regenerate locales":
+    exec { "locale-gen":
       path        => "/usr/sbin:/usr/bin:/sbin:/bin",
-      environment => "HOME=/root",
-      command     => "/usr/sbin/locale-gen",
-      user        => "root",
-      group       => "root",
       logoutput   => on_failure,
-      subscribe   => File['/etc/locale.gen'],
-      require     => File['/etc/locale.gen'],
+      refreshonly => true,
     }
 
 }

@@ -4,10 +4,6 @@ class jenkins_slave {
       ensure => present,
     }
 
-    apt::ppa { "ppa:drizzle-developers/trunk":
-      ensure => present
-    }
-
     $packages = ["autoconf",
       "automake",
       "bison",
@@ -47,7 +43,6 @@ class jenkins_slave {
 
     package { $packages:
       ensure => "latest",
-      require => Apt::Ppa["ppa:drizzle-developers/trunk"],
     }
 
     file { 'profilerubygems':

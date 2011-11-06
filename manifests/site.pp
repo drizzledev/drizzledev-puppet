@@ -5,7 +5,6 @@ import "users"
 class drizzle_base {
   include drizzle_project::users
   include ssh
-  include snmpd
   include exim
   include sudoers
 

@@ -1,4 +1,3 @@
-import "doc_server" # TODO: refactor out of module
 import "users"
 #
 # Abstract classes:

@@ -1,4 +1,3 @@
-perl -ple 's/main/main universe/' -i /etc/apt/sources.list
 apt-get update
 apt-get -y --force-yes upgrade
 apt-get install -y --force-yes git rubygems

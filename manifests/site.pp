@@ -26,7 +26,6 @@ class drizzle_base {
   }
 
   $packages = ["python-software-properties",
-               "puppet",
                "bzr",
                "git",
                "python-setuptools",

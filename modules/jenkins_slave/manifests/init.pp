@@ -32,6 +32,7 @@ class jenkins_slave {
       "libreadline-dev",
       "libtokyocabinet-dev",
       "libtool",
+      "openjdk-6-jre",
       "pandora-build",
       "protobuf-compiler",
       "python-sphinx",

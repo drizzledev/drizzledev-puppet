@@ -36,11 +36,6 @@ class drizzle_base {
                "byobu"]
   package { $packages: ensure => "latest" }
 
-  cron { "updatepuppet":
-    user => root,
-    minute => "*/15",
-    command => 'apt-get update >/dev/null 2>&1 ; sleep $((RANDOM\%600)) && cd /root/drizzledev-puppet && /usr/bin/git pull -q && /var/lib/gems/1.8/bin/puppet apply -l /tmp/manifest.log --modulepath=/root/drizzledev-puppet/modules manifests/site.pp',
-  }
 }
 
 class drizzle_server {

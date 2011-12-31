@@ -60,5 +60,3 @@ class drizzle_jenkins_slave {
 node default {
   include drizzle_jenkins_slave
 }
-
-
